@@ -13,6 +13,10 @@ export class RvServiceImpl implements RvService {
     
     private ApiUrl=`${environment.API}/rvRest`
     constructor(private http:HttpClient) { }
+    getSessionByUsername(name: string): Observable<RestResponse<Rv[]>> {
+        const url=`${this.ApiUrl}/patient/${name}`
+        return this.http.get<RestResponse<Rv[]>>(url)
+    }
 
      create(rv: RvCreate): Observable<RestResponse<RvCreate>> {
         console.log("ok")

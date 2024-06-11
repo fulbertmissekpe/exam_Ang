@@ -31,7 +31,7 @@ export class ListeRvComponent implements OnInit{
   refresh(page:number=0){
     console.log(localStorage.getItem('auth')!)
     console.log("ok")
-    this.rv.findAll(page).subscribe(data=>{
+    this.rv.getSessionByUsername(localStorage.getItem('auth')!).subscribe(data=>{
       console.log(data)
       this.response=data
       this.dataPagination.pages=data.pages!

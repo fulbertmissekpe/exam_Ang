@@ -28,7 +28,7 @@ export class FormRvComponent {
   responseMedecin?:RestResponse<Medecin[]>
   errors: any;
   rvCreate:RvCreate={
-    patient:"rrrr",
+    patient:localStorage.getItem('auth')!,
     medecin:"",
     dateHeure:"",
     specialite:"",

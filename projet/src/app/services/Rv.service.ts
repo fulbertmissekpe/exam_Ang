@@ -5,4 +5,5 @@ import { Service } from "./service";
 
 export interface RvService extends Service<Rv[]>{
     create(mod: RvCreate): Observable<RestResponse<RvCreate>>;
+    getSessionByUsername(username: string): Observable<RestResponse<Rv[]>>;
 }

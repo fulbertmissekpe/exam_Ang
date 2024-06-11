@@ -3,7 +3,7 @@ export interface Rv{
     patient:string,
     medecin:string,
     dateHeure:Date,
-    specialite:Specialite
+    specialite:String
 }
 
 export enum Specialite{
