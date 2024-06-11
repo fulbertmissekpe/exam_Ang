@@ -1,0 +1,43 @@
+
+<!-- vues -->
+<div>
+    <div class="container">
+        <div class="card col-lg-12">
+            <div class="card-body mb-2">
+              <a class="text-danger bg-dark active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple fs-5 border border-success m-t-5" routerLink="/" >Retour </a>
+              <a class="text-danger bg-dark active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple fs-5 border border-success m-t-5" routerLink="form" >NOUVEAU </a>
+            </div>
+  
+        </div>
+    </div>
+    
+    <div class="w-full mt-8 overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full overflow-x-auto">
+          <h3>la liste des Patient</h3>
+            <table class="w-full whitespace-no-wrap">
+                <thead>
+                <tr
+                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                >
+                <th class="px-4 py-3">id</th>
+                <th class="px-4 py-3">Nom_Complet</th>
+             
+               
+                </tr>
+                </thead>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                  @for (pat of response?.results; track $index ) {
+                  <tr  class="text-gray-700 dark:text-gray-400" >
+                    <th class="px-4 py-3">{{pat.id}}</th>
+                    <td class="px-4 py-3"> {{pat.nom}}</td>
+                    
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <app-pagination [data]="dataPagination" (onGetNumberPage)="paginate($event)" ></app-pagination>
+</div>
+  
+  

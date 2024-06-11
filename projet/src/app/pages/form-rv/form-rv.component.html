@@ -1,0 +1,70 @@
+
+
+<div class="w-full h-screen overflow-x-hidden border-t flex " >
+  <app-menu></app-menu>
+  <div style="flex: 1;">
+  <div class="w-100 lg:w-1/2 mt-6 pl-0 lg:pl-2">
+    <p class="text-xl pb-6 flex items-center">
+        <i class="fas fa-list mr-3"></i> AJOUT DE CLASSE
+    </p>
+    <div class="leading-loose" style="margin-left: 50%; width: 100%;">
+        <form #RvForm="ngForm" (ngSubmit)="RvForm.form.valid && onSubmit()" class="p-10 bg-white rounded shadow-xl">
+            <p class="text-lg text-gray-800 font-medium pb-4">Nouvelle classe</p>
+            <div class="">
+              <label class="block mt-4" for="libelle"> Patient :</label>
+              <select
+              class="block appearance-none w-full bg-classwhite border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+              [(ngModel)]="rvCreate.patient"
+              aria-label="Default select example" name="patient"  required>
+                  @for (patient of responsePatient?.results; track $index ) {
+                  <option   value="{{patient.id}}">{{patient.nom}}</option>
+                  }
+                </select>
+            </div>
+            <div class="">
+              <label class="block mt-4" for="libelle"> Medecin :</label>
+              <select 
+              class="block appearance-none w-full bg-classwhite border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" 
+              [(ngModel)]="rvCreate.medecin"
+              aria-label="Default select example" name="medecin"  required>
+                  @for (medecin of responseMedecin?.results; track $index ) {
+                  <option   value="{{medecin.id}}">{{medecin.nom}}</option>
+                  }
+                </select>
+                 
+            </div>
+            <div class="relative inline-block w-64">
+              <label class="block mt-4" for="libelle"> Specialite :</label>
+              <select
+              class="block appearance-none w-full bg-classwhite border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                  name="specialite"
+                  #specialite="ngModel"
+                   [(ngModel)]="rvCreate.specialite"  name="options" class="block appearance-none w-full bg-classwhite border border-gray-300 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                      <option value="">All</option>
+                      <option value="1">Generaliste</option>
+                      <option value="2">Cardiologue</option>
+                      <option value="3">Dentaire</option>
+                      
+                  </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-5-5 1.5-1.5L10 9l3.5-3.5L15 7z"/></svg>
+                </div>
+          </div>
+          <div class="relative inline-block w-64">
+            
+            <label class="block mt-4" for="libelle"> Date :</label>
+            <input type="date" class="form-control"   [(ngModel)]="rvCreate.dateHeure"  name="dateHeure" id="selectDate">
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-5-5 1.5-1.5L10 9l3.5-3.5L15 7z"/></svg>
+            </div>
+      </div>
+            <div  class="my-2 ">
+                <button [disabled]="RvForm.invalid" type="submit" style="background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; border: none;">Save</button>
+              
+            </div>
+        </form>
+    </div>
+   
+</div>
+</div>
+</div>

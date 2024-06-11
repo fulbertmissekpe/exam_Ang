@@ -1,0 +1,52 @@
+
+ 
+<div class="w-full h-screen overflow-x-hidden border-t flex " >
+    <app-menu></app-menu>
+    <div style="flex: 1;"> 
+
+    <h1 class="text-3xl text-black pb-6">RDV</h1>
+    <div  class="my-2 ">
+        <button routerLink="form" style="background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px; border: none;">Nouveau</button>
+      
+    </div>
+    <div class="w-full mt-6">
+        <p class="text-xl pb-3 flex items-center">
+            <i class="fas fa-list mr-3"></i> Liste Des rendez Vous
+        </p>
+      
+    <div class="bg-white overflow-auto">
+      <table class="min-w-full bg-white">
+          <thead class="bg-gray-800 text-white">
+              <tr>
+                  <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">ID</th>
+                  <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">PATIENT</th>
+                  <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">MEDECIN</th>
+                  <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">DATE</th>
+                  <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">SPECIALITE</th>
+                 
+              </tr>
+          </thead>
+          <tbody class="text-gray-700">
+              @for (item of response?.results; track $index) {
+                  <tr class="hover:bg-grey-lighter">
+                    <td class="py-4 px-6 border-b border-grey-light">{{item.id}}</td>  
+                    <td class="py-4 px-6 border-b border-grey-light">{{item.patient}}</td>
+                      <td class="py-4 px-6 border-b border-grey-light">{{item.medecin}}</td>
+                      <td class="py-4 px-6 border-b border-grey-light">{{item.dateHeure}}</td>
+                      <td class="py-4 px-6 border-b border-grey-light">{{item.specialite}}</td>
+                  </tr>
+              }
+              
+          </tbody>
+      </table>
+     
+  </div>
+</div>
+<app-pagination [data]="dataPagination" (onGetNumberPage)="paginate($event)" ></app-pagination>
+
+
+  </div>
+</div>
+
+
+ 
